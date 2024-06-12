@@ -1,3 +1,5 @@
+#This script talks about dictionaries in python
+
 #Dictionaries
 #Creating and using dictionaries
 #Dictionary methods and operations
@@ -9,7 +11,6 @@ Dictionaries in python are collections of keys and values
 indexed by keys
 
 """
-
 #Example 1
 #Create a dictionary for a student persuing software  engineering,
 # the key must be your name, age, technology interest, course and year of study.
@@ -22,7 +23,7 @@ student_details = {
     "course": "BSSE",
     "year":"year3"
     }
-#access values
+#access values in  a dictionary
 print(student_details["name"])
 print(student_details["age"])
 
