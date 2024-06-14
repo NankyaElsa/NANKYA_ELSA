@@ -5,9 +5,9 @@ import os
 #1.OPENING FILE
 #open the file using the open() function, takes 2 parameters filename and mode
 #1.1 using open()
-#syntax
 #file = open("filename", "mode")
 file_object = open('sample.txt', 'r')
+#problem - poor resource management, solve using try finally block
 
 #1.2 using with
 with open('sample.txt', 'r') as file:
