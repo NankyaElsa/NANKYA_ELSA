@@ -19,7 +19,70 @@ NB: Used for cleaning up actions
 
 """
 #Example 1: Handle exceptions with division ny zero.
- 
+try:
+    number = int(input("Enter a number: "))
+    result = 20 / number
+
+except ValueError:
+    print("Invalid number! please enter a valid number")
+
+except ZeroDivisionError:
+    print("Error! Division by zero is not allowed")
+
+else:
+    print(f"Result is {result}")
+
+finally:
+    print("Excecution completed successfully")
+
+#Exercise 1:
+# Write a function that converts a string to an integer and handle both valueError if the string cannot be converted
+# to an integer and the TypeError if the input is not a string.
+# Use multiple except block to handle these exceptions.
+
+def string_to_integer():
+    try:
+        convert = input("Enter a string you want to convert to an integer")
+        converted = int(convert)
+    except TypeError:
+        print("Invalid input, input not a string")
+    except ValueError:
+        print("String cannot be converted to an integer")
+    else:
+        print(f"converted integer: {converted}")
+    finally:
+        print("String converted successfully to an integer")
+
+#Custom exception handling
+#Example 2: Exception raised for error in the input, if funds are insufficient.
+
+class InsufficientFundsError(Exception):
+    def __init__(self, balance, amount):
+        self.balance = balance
+        self.amount = amount
+        self.message = f"Attempt to withdraw {self.amount} with only {self.balance} in account"
+        super().__init__(self.message)
+
+
+def withdraw(balance, amount):
+    if amount > balance:
+        raise InsufficientFundsError(balance, amount)
+    return balance - amount
+    
+#Custom exception handling
+try:
+    balance = 20000
+    amount_to_withdraw = 100000
+    new_balance = withdraw(balance, amount_to_withdraw)
+
+except InsufficientFundsError as e:
+    print("Error: {e.message}")
+
+else:
+    print(f"withdrawal successfully! New balance is {new_balance}")
+
+finally:
+    print("Transaction completed")
 
 """
 Note:
